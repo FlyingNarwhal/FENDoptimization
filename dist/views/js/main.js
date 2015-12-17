@@ -403,7 +403,6 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
-
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -423,11 +422,6 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Iterates through pizza elements on the page and changes their widths
-  /*
-  * @Description changes the size of the pizza based on a slider
-  * @Parameter size -the location of the slider
-  * @returns not much, but it does change the size of the pizza!
-  */
   function changePizzaSizes(size) {
     var randPizza = document.getElementsByClassName('randomPizzaContainer');
     switch(size) {
@@ -490,24 +484,21 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-
-/*
-* @Description animates the pizza background as the user scrolls on the page
-*
-*/
 var items = document.getElementsByClassName('mover');
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
   var scroll = document.body.scrollTop;
-
-  //iterate over each pizza, then chage it's location relative to 
-  //page location
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scroll / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
+
+  // get the mpizzas that move, store in an array called items
+  // iterate through them
+  // math to move them
+  // change the style of the pizza,
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.

@@ -13,8 +13,6 @@ window.addEventListener("load", function(event) {
   logCRP();
 });
 
-//function for google analytics, taken out of html.index
-//so that it could loaded async
 (function(w,g) {
 	w['GoogleAnalyticsObject'] = g;
 	w[g] = w[g] || function() {
@@ -25,3 +23,17 @@ window.addEventListener("load", function(event) {
 )
 
 (window, 'ga');
+
+// var WebFont = require('webfontloader');
+
+// WebFont.load({
+//   google: {
+//     families: ['Open Sans:400,700']
+//   }
+// });
+
+// (function(d) {
+//   var wf = d.createElement('script'), s = d.scripts[0];
+//   wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+//   s.parentNode.insertBefore(wf, s);
+// })(document);
