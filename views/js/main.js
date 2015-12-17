@@ -422,6 +422,24 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Iterates through pizza elements on the page and changes their widths
+
+  /*
+  * @Description changes the size of the pizza based on a slider
+  * @Parameter size -the location of the slider
+  * @returns not much, but it does change the size of the pizza!
+  */
+
+  /*
+  * I decided remove dx all together, as it didn't seem do much more than
+  * add weight to each frame rendering. Then I moved the switch, inside 
+  * changePizzaSizes(), and changed returns. This eased the browsers
+  * process by quite a lot!
+  * I also used a class selector, and assigned that to a variable to
+  * save the broswer from making unnecessery iterations through the DOM
+  * I could have put the variable to the globl scope, and saved more DOM
+  * iterations, but the performance to me wasn't worth breaking good habits.
+  */
+
   function changePizzaSizes(size) {
     var randPizza = document.getElementsByClassName('randomPizzaContainer');
     switch(size) {
@@ -484,6 +502,20 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
+
+/*
+* @Description animates the pizza background as the user scrolls on the page
+*
+*/
+
+/*
+* Again, I decided to select by class, instead of by querySelectorAll() for
+* perf reasons. I also saved the scrollTop query to a variable for caching
+* 
+*
+*
+*
+*/
 var items = document.getElementsByClassName('mover');
 function updatePositions() {
   frame++;

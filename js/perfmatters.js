@@ -13,6 +13,11 @@ window.addEventListener("load", function(event) {
   logCRP();
 });
 
+
+//moved the google analytics from being
+//inlined JS, so that I could call this
+//async'ly, to stop it from blocking the
+//critical rendering path
 (function(w,g) {
 	w['GoogleAnalyticsObject'] = g;
 	w[g] = w[g] || function() {
@@ -23,17 +28,3 @@ window.addEventListener("load", function(event) {
 )
 
 (window, 'ga');
-
-// var WebFont = require('webfontloader');
-
-// WebFont.load({
-//   google: {
-//     families: ['Open Sans:400,700']
-//   }
-// });
-
-// (function(d) {
-//   var wf = d.createElement('script'), s = d.scripts[0];
-//   wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-//   s.parentNode.insertBefore(wf, s);
-// })(document);
