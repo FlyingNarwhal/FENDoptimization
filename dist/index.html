@@ -8,10 +8,16 @@
     <title>Cameron Pittman: Portfolio</title>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
+    <!-- I moved the web font to a async web font loader at the bottom
+    of the file to free up the CRP, and I feel like FOUT is acceptable-->
 
+    <!-- this is commented, because I chose to inline the production CSS
+    hence the comment inside the gulpfile -->
     <!-- <link async href="css/style.css" rel="stylesheet"> -->
     <link href="css/print.css" rel="stylesheet" media="print">
 
+    <!-- Made these async scripts, because there is no reason for them to
+    block the CRP, especially if the user never interacts with them -->
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
 
@@ -112,6 +118,7 @@
       <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
     </footer>
 
+    <!-- Here is the async webfont loader #coveryoureyesfromFOUT -->
     <script>
       WebFontConfig = {
         google: {

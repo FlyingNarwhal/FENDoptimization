@@ -1,5 +1,22 @@
 ## Website Performance Optimization portfolio project
 
+
+* *****************************************************************************
+* *******************Student Optimizations Briefly*****************************
+* *****************************************************************************
+* for detailed explanation see files:
+*
+* /dist/index.html        --changed script loading to async, and inlined css
+*														SEE LINES 11, 14, 19, 24, 121
+* /dist/js/perfmatters.js --pushed google analytics for async purposes
+* /dist/views/main.js     --refactored code to allow for 60fps, and faster
+*														render times *SEE LINES 426 && 506*
+* /gulpfile.js        		--added minification and image compression to build
+*														process
+*	/README.md
+
+
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
