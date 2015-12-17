@@ -1,16 +1,12 @@
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
-
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
-
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
@@ -403,7 +399,6 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
-
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -423,11 +418,24 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Iterates through pizza elements on the page and changes their widths
+
   /*
   * @Description changes the size of the pizza based on a slider
   * @Parameter size -the location of the slider
   * @returns not much, but it does change the size of the pizza!
   */
+
+  /*
+  * I decided remove dx all together, as it didn't seem do much more than
+  * add weight to each frame rendering. Then I moved the switch, inside 
+  * changePizzaSizes(), and changed returns. This eased the browsers
+  * process by quite a lot!
+  * I also used a class selector, and assigned that to a variable to
+  * save the broswer from making unnecessery iterations through the DOM
+  * I could have put the variable to the globl scope, and saved more DOM
+  * iterations, but the performance to me wasn't worth breaking good habits.
+  */
+
   function changePizzaSizes(size) {
     var randPizza = document.getElementsByClassName('randomPizzaContainer');
     switch(size) {
@@ -495,15 +503,20 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 * @Description animates the pizza background as the user scrolls on the page
 *
 */
+
+/*
+* Again, I decided to select by class, instead of by querySelectorAll() for
+* perf reasons. By moving it to a global scope, this really took a load off
+* the broswer from iterating through all those pizzas! I also saved the 
+* scrollTop query to a variable for caching doing both of these dramatically 
+* improved performance
+*/
 var items = document.getElementsByClassName('mover');
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
   var scroll = document.body.scrollTop;
-
-  //iterate over each pizza, then chage it's location relative to 
-  //page location
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scroll / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
