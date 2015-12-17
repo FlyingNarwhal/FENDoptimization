@@ -526,7 +526,12 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  //grab height of the window, to figure out how many pizzas to render
+  //for each screen.
+  var height = window.screen.height;
+  var row = height / s;
+  var pizzaQuantity = row * cols;
+  for (var i = 0; i < pizzaQuantity; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
