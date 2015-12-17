@@ -510,11 +510,10 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 /*
 * Again, I decided to select by class, instead of by querySelectorAll() for
-* perf reasons. I also saved the scrollTop query to a variable for caching
-* 
-*
-*
-*
+* perf reasons. By moving it to a global scope, this really took a load off
+* the broswer from iterating through all those pizzas! I also saved the 
+* scrollTop query to a variable for caching doing both of these dramatically 
+* improved performance
 */
 var items = document.getElementsByClassName('mover');
 function updatePositions() {
@@ -526,11 +525,6 @@ function updatePositions() {
     var phase = Math.sin((scroll / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
-
-  // get the mpizzas that move, store in an array called items
-  // iterate through them
-  // math to move them
-  // change the style of the pizza,
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
