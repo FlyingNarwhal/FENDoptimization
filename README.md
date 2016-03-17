@@ -9,9 +9,9 @@ This project relied heavily on Chrome Dev Tools to look for jank, and runtime in
 For a live preview of this project, [click here](https://FlyingNarwhal.github.io/FENDoptimization).
 
 
-* *****************************************************************************
-* *******************Student Optimizations Briefly*****************************
-* *****************************************************************************
+
+######Student Optimizations Briefly######
+
 * for detailed explanation see files:
 *
 * /dist/index.html        --changed script loading to async, and inlined css
